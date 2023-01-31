@@ -15,6 +15,8 @@ int main()
     int rec_X = 220;
     int rec_Y = 240;
 
+    int velocity = 10;
+
 
     InitWindow(width, height, "Fetus");
 
@@ -28,7 +30,14 @@ int main()
         // Game Logic Starts
 
         DrawCircle(circle_X, circle_Y, circle_radius, BLUE);
-        DrawRectangle(rec_X, rec_Y, , 120, RED);
+        DrawRectangle(rec_X, rec_Y, 30, 120, RED);
+
+        rec_Y += velocity;
+
+        if(rec_Y > height || rec_Y < 0)
+        {
+            velocity = -velocity;
+        }
 
         if(IsKeyDown(KEY_D) && circle_X < width)
         {
